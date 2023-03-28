@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Notas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let item of notesService.notes | async">
+    <ion-toolbar>
+      <ion-buttons slot="primary">
+        <ion-button [routerLink]="['../new-notes', 'edit', item.id]">
+          <ion-icon slot="icon-only" size="small" src="{{edit}}"></ion-icon>
+        </ion-button>
+        <ion-button (click)="delNotes(item.id)">
+          <ion-icon
+            slot="icon-only"
+            size="small"
+            color="danger"
+            src="{{del}}"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title size="small"> {{item.title}} </ion-title>
+    </ion-toolbar>
+    <ion-card-content> {{item.text}} </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="../new-notes" color="dark">
+      <ion-icon src="{{add}}"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title> PassGuard </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngFor="let item of passguardService.passguard | async" class="box">
+    <ion-item
+      button
+      (click)="ViewpassPages(item);$event.stopPropagation();"
+      lines="none"
+      class="list"
+    >
+      <ion-label>
+        <h3 class="title">{{item.page}}</h3>
+        <p>{{item.email}}</p>
+      </ion-label>
+      <!-- ehhh botones -->
+      <ion-buttons slot="end">
+        <ion-button
+          [routerLink]="['../new-passguard', 'edit', item.id]"
+          (click)="$event.stopPropagation()"
+        >
+          <ion-icon slot="icon-only" size="small" src="{{edit}}"></ion-icon>
+        </ion-button>
+        <ion-button (click)="delPassguard(item.id);$event.stopPropagation();">
+          <ion-icon
+            slot="icon-only"
+            size="small"
+            color="danger"
+            src="{{del}}"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="../new-passguard" color="dark">
+      <ion-icon src="{{add}}"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,31 @@
+ion-card {
+  box-shadow: none !important;
+  --background: #f1f8ff;
+}
+
+.bottom {
+  background: #010101;
+}
+
+ion-toolbar {
+  --background: none;
+}
+
+ion-title {
+  font-family: Lemon-Milk-Regular;
+  color: #010101;
+}
+
+ion-card-content {
+  font-family: LemonMilkUltraLight;
+  font-size: 12px;
+}
+
+.card-content-ios,
+.card-content-md {
+  padding-top: 0;
+}
+
+ion-header {
+  background-color: #ffff;
+}
