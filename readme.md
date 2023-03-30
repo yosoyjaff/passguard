@@ -2,7 +2,7 @@
 
 Esta es una aplicación desarrollada con Ionic, Angular y Capacitor, que permite guardar notas y contraseñas en Firebase y utilizar bloqueo biométrico para asegurar la privacidad de la información almacenada.
 
-[Version Desktop]()
+[Version Desktop](https://github.com/yosoyjaff/pasguard-desktop)
 
 <img src="screenshot/login.jpeg" alt="login" width="150" height="300">
 <img src="screenshot/passguard-notes.jpeg" alt="login" width="150" height="300">
